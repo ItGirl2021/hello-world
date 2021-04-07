@@ -11,7 +11,7 @@ public class Jogo extends JFrame {
     JButton cor; //Para restaurar a cor dos botões;
     JButton [] botoes; //Vetor para Buttons;
     JPanel PainelJogo; //Painel para os botões;
-    int vezJogador; //Verificar a vez do jogador;
+    int vezJogador = 0; //Verificar a vez do jogador;
     String simbolo; //Para alocar o simbolo x ou o;
 
     public Jogo() {
