@@ -31,13 +31,12 @@ public class Buscador {
         scan.close();
         
         Dicionario dicionario = new Dicionario(lista);
-        System.out.printf("Palavras que começam com '%s': ", inicio.toUpperCase());
+        System.out.println();
         System.out.println(dicionario.buscaInicio(inicio));
         System.out.println();
-        System.out.printf("Palavras que terminam com '%s': ", termino.toUpperCase());
         System.out.println(dicionario.buscaTerminacao(termino));
         System.out.println();
-        System.out.printf("Palavras que começam com '%s' e terminam com '%s': ", inicio.toUpperCase(), termino.toUpperCase());
         System.out.println(dicionario.buscaInicioTermino(inicio, termino));
+        System.out.println();
     }
 }
