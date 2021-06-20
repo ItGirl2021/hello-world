@@ -12,7 +12,7 @@ public class Dicionario {
     }
 
     public List<String> buscaTerminacao(String termino) {
-        if(termino.isEmpty()) return dicionario;
+        if(termino.isBlank()) return dicionario;
 
         List<String> palavras = new ArrayList<>();
         Iterator<String> it = dicionario.iterator();
@@ -27,7 +27,7 @@ public class Dicionario {
     }
 
     public List<String> buscaInicio(String inicio) {
-        if(inicio.isEmpty()) return dicionario;
+        if(inicio.isBlank()) return dicionario;
         List<String> palavras = new ArrayList<>();
         Iterator<String> it = dicionario.iterator();
 
@@ -41,9 +41,9 @@ public class Dicionario {
     }
 
     public List<String> buscaInicioTermino(String inicio, String termino) {
-        if(inicio.isEmpty() && termino.isEmpty()) return dicionario;
-        if(inicio.isEmpty() && !(termino.isEmpty())) return buscaTerminacao(termino);
-        if(!(inicio.isEmpty()) && termino.isEmpty()) return buscaInicio(inicio);
+        if(inicio.isBlank() && termino.isBlank()) return dicionario;
+        if(inicio.isBlank() && !(termino.isBlank())) return buscaTerminacao(termino);
+        if(!(inicio.isBlank()) && termino.isBlank()) return buscaInicio(inicio);
 
         List<String> palavras = new ArrayList<>();
         Iterator<String> it = dicionario.iterator();

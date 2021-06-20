@@ -25,16 +25,19 @@ public class Busca {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Digite o inicio da palavra: ");
-        String inicio = scan.next();
+        String inicio = scan.nextLine();
         System.out.printf("Digite o termino da palavra: ");
-        String termino = scan.next();
+        String termino = scan.nextLine();
         scan.close();
-
+        
         Dicionario dicionario = new Dicionario(lista);
+        System.out.printf("Palavras que começam com %s: ", inicio);
         System.out.println(dicionario.buscaInicio(inicio));
         System.out.println();
+        System.out.printf("Palavras que terminam com %s: ", termino);
         System.out.println(dicionario.buscaTerminacao(termino));
         System.out.println();
+        System.out.printf("Palavras que começam com %s e terminam com %s: ", inicio, termino);
         System.out.println(dicionario.buscaInicioTermino(inicio, termino));
     }
 }
