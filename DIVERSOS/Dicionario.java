@@ -12,29 +12,43 @@ public class Dicionario {
     }
 
     public List<String> buscaTerminacao(String termino) {
-        if(termino.isBlank()) return dicionario;
+        if(termino.isBlank()) return null;
 
         List<String> palavras = new ArrayList<>();
         Iterator<String> it = dicionario.iterator();
 
         while(it.hasNext()) {
-            String palavra = it.next();
-            String substrg = palavra.substring(palavra.length() - termino.length(), palavra.length());
-            if(substrg.equals(termino)) palavras.add(palavra);
+            
+            try {
+
+                String palavra = it.next();
+                String substrg = palavra.substring(palavra.length() - termino.length(), palavra.length());
+                if(substrg.equals(termino)) palavras.add(palavra);
+            } catch(StringIndexOutOfBoundsException e) {
+                System.out.println("Exception Catched!");
+                continue;
+            }
         }
 
         return palavras;
     }
 
     public List<String> buscaInicio(String inicio) {
-        if(inicio.isBlank()) return dicionario;
+        if(inicio.isBlank()) return null;
         List<String> palavras = new ArrayList<>();
         Iterator<String> it = dicionario.iterator();
 
         while(it.hasNext()) {
-            String palavra = it.next();
-            String substrg = palavra.substring(0, inicio.length());
-            if(substrg.equals(inicio)) palavras.add(palavra);
+            
+            try {
+
+                String palavra = it.next();
+                String substrg = palavra.substring(0, inicio.length());
+                if(substrg.equals(inicio)) palavras.add(palavra);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("Exception Catched!");
+                continue;
+            }
         }
 
         return palavras;
@@ -50,9 +64,16 @@ public class Dicionario {
 
         while(it.hasNext()) {
             String palavra = it.next();
-            String tpalavra = palavra.substring(palavra.length() - termino.length(), palavra.length());
-            String ipalavra = palavra.substring(0, inicio.length());
-            if((tpalavra.equals(termino)) && (ipalavra.equals(inicio))) palavras.add(palavra);
+
+            try {
+                String tpalavra = palavra.substring(palavra.length() - termino.length(), palavra.length());
+                String ipalavra = palavra.substring(0, inicio.length());
+                if((tpalavra.equals(termino)) && (ipalavra.equals(inicio))) palavras.add(palavra);
+            } catch (StringIndexOutOfBoundsException e) {
+                System.out.println("Exception Catched!");
+                continue;
+            }
+
         }
 
         return palavras;

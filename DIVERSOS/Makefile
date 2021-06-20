@@ -3,11 +3,11 @@ all: msg clean build run
 msg:
 	@echo by Danielle Guia 2021
 
-run: Busca.class Dicionario.class
-	java Busca
+run: Buscador.class Dicionario.class
+	java Buscador
 
-build: Busca.java Dicionario.java
-	javac Busca.java Dicionario.java
+build: Buscador.java Dicionario.java
+	javac Buscador.java Dicionario.java
 
 clean:
 	rm *.class

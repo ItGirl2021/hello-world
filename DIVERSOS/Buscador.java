@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class Busca {
+public class Buscador {
     public static void main(String[] args) {
         List<String> lista = new ArrayList<>();
 
@@ -31,13 +31,13 @@ public class Busca {
         scan.close();
         
         Dicionario dicionario = new Dicionario(lista);
-        System.out.printf("Palavras que começam com %s: ", inicio);
+        System.out.printf("Palavras que começam com '%s': ", inicio.toUpperCase());
         System.out.println(dicionario.buscaInicio(inicio));
         System.out.println();
-        System.out.printf("Palavras que terminam com %s: ", termino);
+        System.out.printf("Palavras que terminam com '%s': ", termino.toUpperCase());
         System.out.println(dicionario.buscaTerminacao(termino));
         System.out.println();
-        System.out.printf("Palavras que começam com %s e terminam com %s: ", inicio, termino);
+        System.out.printf("Palavras que começam com '%s' e terminam com '%s': ", inicio.toUpperCase(), termino.toUpperCase());
         System.out.println(dicionario.buscaInicioTermino(inicio, termino));
     }
 }
