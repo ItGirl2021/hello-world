@@ -37,6 +37,11 @@ public class Jogo extends JFrame {
                 if(Verifica(0)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -49,6 +54,11 @@ public class Jogo extends JFrame {
                 if(Verifica(1)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -61,6 +71,11 @@ public class Jogo extends JFrame {
                 if(Verifica(2)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -73,6 +88,11 @@ public class Jogo extends JFrame {
                 if(Verifica(3)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -85,6 +105,11 @@ public class Jogo extends JFrame {
                 if(Verifica(4)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -97,6 +122,11 @@ public class Jogo extends JFrame {
                 if(Verifica(5)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -109,6 +139,11 @@ public class Jogo extends JFrame {
                 if(Verifica(6)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -121,6 +156,11 @@ public class Jogo extends JFrame {
                 if(Verifica(7)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -133,6 +173,11 @@ public class Jogo extends JFrame {
                 if(Verifica(8)) {
                     JOptionPane.showMessageDialog(null, "You Win!");
                     Reset();
+                } else {
+                    if(verificaVelha()) {
+                        JOptionPane.showMessageDialog(null, "Velha!");
+                        Reset();
+                    }
                 }
             }
         });
@@ -257,6 +302,14 @@ public class Jogo extends JFrame {
             
             default:
                 return false;
+        }
+    }
+
+    public boolean verificaVelha() {
+        if(botoes[0].isEnabled() && botoes[1].isEnabled() && botoes[2].isEnabled() && botoes[3].isEnabled() && botoes[4].isEnabled() && botoes[5].isEnabled() && botoes[6].isEnabled() && botoes[7].isEnabled() && botoes[8].isEnabled()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
