@@ -10,9 +10,13 @@ public class Jogo extends JFrame {
     JButton [] botoes; //Vetor para Buttons;
     JPanel PainelJogo; //Painel para os botões;
     int vezJogador = 0; //Verificar a vez do jogador;
-    String simbolo; //Para alocar o simbolo x ou o;
+    //String simbolo; //Para alocar o simbolo x ou o;
+    ImageIcon circulo = new ImageIcon(getClass().getResource("o.jpg"));
+    ImageIcon xis = new ImageIcon(getClass().getResource("x.jpg"));
     int jogador1 = 0; //Pontuação Jogador 1;
     int jogador2 = 0; //Pontuação jogador 2;
+    int rodadas = 0; //Número de rodadas;
+    JLabel informacao = new JLabel("Jogador " + vezJogador);
 
     public Jogo() {
         super("Jogo da Velha"); //Título da Janela;
@@ -21,6 +25,7 @@ public class Jogo extends JFrame {
         PainelJogo = new JPanel(); //Cria novo painel;
         PainelJogo.setLayout(new GridLayout(3,3,10,10)); //Atribui Layout do tipo GridLayout;
         PainelJogo.setBackground(Color.BLACK);
+        
         botoes = new JButton[9];
 
         for(int i = 0; i < 9; i++) {
@@ -188,22 +193,43 @@ public class Jogo extends JFrame {
         setVisible(true); //Torna a janela visivel;
     }
 
+    public void configuraTela() {
+        add(BorderLayout.CENTER, PainelJogo);
+        add(BorderLayout.NORTH, informacao);
+        PainelJogo.setBackground(Color.BLACK);
+        informacao.setFont(new Font("Arial", Font.BOLD, 20));
+        informacao.setForeground(new Color(50, 200, 50));
+        informacao.setHorizontalAlignment(SwingConstants.CENTER);
+    }
+
     public void Jogada(int simbol) {
 
         if(vezJogador == 0) {
-            simbolo = "X";
+            //simbolo = "X";
+            botoes[simbol].setIcon(xis);
             vezJogador = 1;
         } else {
-            simbolo = "O";
+            //simbolo = "O";
+            botoes[simbol].setIcon(circulo);
             vezJogador = 0;
         }
 
-        botoes[simbol].setText(simbolo);
+        //botoes[simbol].setText(simbolo);
         botoes[simbol].setEnabled(false); //Desativa o botão;
     }
 
     public boolean Verifica(int simbol) {
-        switch(simbol) {
+        if(botoes[0].getIcon().equals(botoes[1].getIcon()) && botoes[1].getIcon().equals(botoes[2].getIcon())) return true;
+        if(botoes[3].getIcon().equals(botoes[4].getIcon()) && botoes[4].getIcon().equals(botoes[5].getIcon())) return true;
+        if(botoes[6].getIcon().equals(botoes[7].getIcon()) && botoes[7].getIcon().equals(botoes[8].getIcon())) return true;
+        if(botoes[0].getIcon().equals(botoes[3].getIcon()) && botoes[3].getIcon().equals(botoes[6].getIcon())) return true;
+        if(botoes[1].getIcon().equals(botoes[4].getIcon()) && botoes[4].getIcon().equals(botoes[7].getIcon())) return true;
+        if(botoes[2].getIcon().equals(botoes[5].getIcon()) && botoes[5].getIcon().equals(botoes[8].getIcon())) return true;
+        if(botoes[0].getIcon().equals(botoes[4].getIcon()) && botoes[4].getIcon().equals(botoes[8].getIcon())) return true;
+        if(botoes[2].getIcon().equals(botoes[4].getIcon()) && botoes[4].getIcon().equals(botoes[6].getIcon())) return true;
+        return false;
+
+        /*switch(simbol) {
             case 0:
                 if(((botoes[0].getText()).equals((botoes[1].getText())) && (botoes[0].getText()).equals((botoes[2].getText())))
                     || ((botoes[0].getText()).equals((botoes[3].getText())) && (botoes[0].getText()).equals((botoes[6].getText())))
@@ -302,11 +328,11 @@ public class Jogo extends JFrame {
             
             default:
                 return false;
-        }
+        }*/
     }
 
     public boolean verificaVelha() {
-        if(botoes[0].isEnabled() && botoes[1].isEnabled() && botoes[2].isEnabled() && botoes[3].isEnabled() && botoes[4].isEnabled() && botoes[5].isEnabled() && botoes[6].isEnabled() && botoes[7].isEnabled() && botoes[8].isEnabled()) {
+        if(rodadas == 9) {
             return true;
         } else {
             return false;
@@ -315,6 +341,7 @@ public class Jogo extends JFrame {
 
     public void Reset() {
         vezJogador = 0;
+        rodadas = 0;
 
         for(int i = 0; i < 9; i++) {
             botoes[i].setText("");
