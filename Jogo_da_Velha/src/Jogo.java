@@ -19,7 +19,88 @@ public class Jogo extends JFrame {
     JLabel informacao = new JLabel("Jogador " + vezJogador);
 
     public Jogo() {
-        super("Jogo da Velha"); //Título da Janela;
+
+        botoes[0].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(0);
+            }
+        });
+
+        botoes[1].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(1);
+            }
+        });
+       
+        botoes[2].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(2);
+            }
+        });
+        
+        botoes[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(3);
+            }
+        });
+        
+        botoes[4].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(4);
+            }
+        });
+        
+        botoes[5].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(5);
+            }
+        });
+        
+        botoes[6].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(6);
+            }
+        });
+        
+        botoes[7].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(7);
+            }
+        });
+        
+        botoes[8].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jogada(8);
+            }
+        });
+    }
+
+    public void configurarJanela() {
+        setTitle("Jogo da Velha");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        add(PainelJogo); //Adiciona painel a janela;
+        setLocation(470, 200); //Determina a localização da janela;
+        setSize(350, 350);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    public void configuraTela() {
+        add(BorderLayout.CENTER, PainelJogo);
+        add(BorderLayout.NORTH, informacao);
+        PainelJogo.setBackground(Color.BLACK);
+        informacao.setFont(new Font("Arial", Font.BOLD, 20));
+        informacao.setForeground(new Color(50, 200, 50));
+        informacao.setHorizontalAlignment(SwingConstants.CENTER);
         ((JComponent)getContentPane()).setBorder(new EmptyBorder(5,5,5,5)); //Desenha borda ao redor dos componentes;
 
         PainelJogo = new JPanel(); //Cria novo painel;
@@ -34,172 +115,6 @@ public class Jogo extends JFrame {
             PainelJogo.add(botoes[i]);
         }
 
-        botoes[0].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(0);
-                                
-                if(Verifica(0)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-
-        botoes[1].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(1);
-                                                
-                if(Verifica(1)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-       
-        botoes[2].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(2);
-                                                
-                if(Verifica(2)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[3].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(3);
-                                                
-                if(Verifica(3)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[4].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(4);
-                
-                if(Verifica(4)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[5].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(5);
-                                                
-                if(Verifica(5)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[6].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(6);
-                                                
-                if(Verifica(6)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[7].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(7);
-                                                
-                if(Verifica(7)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-        
-        botoes[8].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Jogada(8);
-                                                
-                if(Verifica(8)) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                    Reset();
-                } else {
-                    if(verificaVelha()) {
-                        JOptionPane.showMessageDialog(null, "Velha!");
-                        Reset();
-                    }
-                }
-            }
-        });
-
-        add(PainelJogo); //Adiciona painel a janela;
-        setLocation(470, 200); //Determina a localização da janela;
-        setSize(400, 400); //Determina tamanho da janela;
-        setVisible(true); //Torna a janela visivel;
-    }
-
-    public void configuraTela() {
-        add(BorderLayout.CENTER, PainelJogo);
-        add(BorderLayout.NORTH, informacao);
-        PainelJogo.setBackground(Color.BLACK);
-        informacao.setFont(new Font("Arial", Font.BOLD, 20));
-        informacao.setForeground(new Color(50, 200, 50));
-        informacao.setHorizontalAlignment(SwingConstants.CENTER);
     }
 
     public void Jogada(int simbol) {
@@ -207,18 +122,27 @@ public class Jogo extends JFrame {
         if(vezJogador == 0) {
             //simbolo = "X";
             botoes[simbol].setIcon(xis);
+            if(Verifica()) {
+                Placar();
+                Reset();
+            }
             vezJogador = 1;
         } else {
             //simbolo = "O";
             botoes[simbol].setIcon(circulo);
+            if(Verifica()) {
+                Placar();
+                Reset();
+            }
             vezJogador = 0;
         }
 
+        rodadas++;
         //botoes[simbol].setText(simbolo);
         botoes[simbol].setEnabled(false); //Desativa o botão;
     }
 
-    public boolean Verifica(int simbol) {
+    public boolean Verifica() {
         if(botoes[0].getIcon().equals(botoes[1].getIcon()) && botoes[1].getIcon().equals(botoes[2].getIcon())) return true;
         if(botoes[3].getIcon().equals(botoes[4].getIcon()) && botoes[4].getIcon().equals(botoes[5].getIcon())) return true;
         if(botoes[6].getIcon().equals(botoes[7].getIcon()) && botoes[7].getIcon().equals(botoes[8].getIcon())) return true;
